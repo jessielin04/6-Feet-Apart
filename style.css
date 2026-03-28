@@ -270,6 +270,7 @@ body {
 .credits-title {
     font-family: 'Super Trend', sans-serif;
     font-size: 68px;
+    color: var(--dark-purple);
     margin-top: 0;
     margin-bottom: 0;
     text-align: center;
@@ -277,6 +278,7 @@ body {
 .credits-subtitle {
     text-align: center;
     margin-top: 4px;
+    color: var(--dark-purple);
     margin-bottom: 0;
     line-height: 1.5;
 }
@@ -297,7 +299,7 @@ body {
 .credits-section-header {
     font-family: 'Yeasty Flavors', sans-serif;
     font-size: 26px;
-    color: #111;
+    color: var(--dark-purple);
     margin-top: 14px;
     margin-bottom: 5px;
 }
@@ -430,4 +432,35 @@ body {
 .search-btn-row {
     margin-top: 12px;
     margin-bottom: 0;
+}
+
+/*SEARCHING page*/
+#screen-searching {
+    justify-content: center;
+    gap: 32px;
+}
+.searching-mii {
+    height: 200px;
+    object-fit: contain;
+    animation: spin 2.8s linear infinite;
+}
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+.searching-text {
+    font-family: 'Super Trend', sans-serif;
+    font-size: 28px;
+    color: var(--pink);
+    text-align: center;
+}
+.searching-dots::after {
+    content: '';
+    animation: dots 1.2s steps(3, end) infinite;
+}
+@keyframes dots {
+    0%   { content: '.'; }
+    33%  { content: '..'; }
+    66%  { content: '...'; }
+    100% { content: ''; }
 }

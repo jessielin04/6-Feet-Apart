@@ -64,6 +64,7 @@ function handleSearch() {
     const b = document.getElementById('input-user-b').value.trim();
     //NOTE!!!!
     //need to link to oreoluwa's backend; dont forget, need to finish after UI is done!!!!!!!
-    if (!a || !b) return; 
+    if (!a || !b) return;
     showScreen('screen-searching');
+    setTimeout(() => showScreen('screen-results'), 8000);
 }
