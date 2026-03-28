@@ -84,8 +84,57 @@
     </div>
     <!--SETTINGS end-->
 
-</div>
+<!--CREDITS page-->
+<div id="screen-credits" class="screen">
 
+    <!--title + blurb: centered across full width-->
+    <h1 class="title-font credits-title">Credits</h1>
+    <p class="subtitle credits-subtitle">
+        Made with love (and BFS) at the University of Florida.<br/>
+        No Twitch users were harmed in the process.
+    </p>
+
+    <!--middle row: left content + right mii-->
+    <div class="credits-inner">
+        <div class="credits-left">
+            <h2 class="credits-section-header">Team</h2>
+            <div class="credits-card">
+                <span class="credits-name">Jessie Lin</span>
+                <span class="credits-role">Frontend UI/UX design and development</span>
+            </div>
+            <div class="credits-card">
+                <span class="credits-name">Oreoluwa Owoeye</span>
+                <span class="credits-role">Backend HashMap, Red-Black Tree &amp; BFS</span>
+            </div>
+
+            <h2 class="credits-section-header">Data</h2>
+            <div class="credits-card credits-card-data">
+                <span class="credits-name">SNAP Twitch Gamers Social Network</span>
+                <span class="credits-url">https://snap.stanford.edu/data/twitch_gamers.html</span>
+            </div>
+
+            <h2 class="credits-section-header">Tools &amp; Libraries</h2>
+            <div class="credits-tags">
+                <span class="credits-tag tag-sky">Python</span>
+                <span class="credits-tag tag-blue">HTML/CSS/JS</span>
+                <span class="credits-tag tag-yellow">Figma</span>
+                <span class="credits-tag tag-sky">vis.js</span>
+            </div>
+        </div>
+
+        <img src="assets/miis/cake mii.png" class="credits-mii" alt="cake mii" />
+    </div>
+
+    <!--back button: centered across full width-->
+    <div class="btn-row credits-btn-row">
+        <button class="btn btn-pink" onclick="showScreen('screen-home')">back</button>
+    </div>
+
+</div>
+<!--CREDITS end-->
+ 
+</div>
+ 
 <script src="script.js"></script>
 </body>
 </html>

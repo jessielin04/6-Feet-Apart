@@ -208,8 +208,7 @@ body {
     margin-top: 0;
     margin-bottom: 0;
 }
-
-/*centered screen*/
+/*screen + content*/
 #screen-settings {
     justify-content: center;
 }
@@ -264,8 +263,97 @@ body {
     object-fit: contain;
     align-self: flex-end;
 }
-
 #screen-settings .btn-row {
     margin-top: 12px;
+    margin-bottom: 0;
+}
+
+/*CREDITS page*/
+#screen-credits {
+    justify-content: center;
+    padding: 0 48px;
+}
+.credits-title {
+    font-size: 68px;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+}
+.credits-subtitle {
+    text-align: center;
+    margin-top: 4px;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+.credits-inner {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 32px;
+    width: 100%;
+    padding: 0;
+}
+.credits-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 0;
+}
+.credits-section-header {
+    font-family: 'Yeasty Flavors', sans-serif;
+    font-size: 26px;
+    color: #111;
+    margin-top: 14px;
+    margin-bottom: 5px;
+}
+.credits-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    border: 1px solid #e4daf5;
+    border-radius: 999px;
+    padding: 10px 20px;
+    margin-bottom: 6px;
+    font-family: 'DMMono', monospace;
+    font-size: 13px;
+    color: #aaa;
+    gap: 24px;
+}
+.credits-card-data {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    border-radius: 16px;
+    padding: 12px 20px;
+}
+.credits-url {
+    font-size: 11px;
+    color: #bbb;
+}
+.credits-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 2px;
+}
+.credits-tag {
+    font-family: 'DMMono', monospace;
+    font-size: 13px;
+    padding: 7px 18px;
+    border-radius: 999px;
+    color: var(--dark-purple);
+}
+.tag-sky    { background: var(--light-blue); }
+.tag-blue   { background: var(--blue); }
+.tag-yellow { background: var(--yellow); }
+.credits-mii {
+    height: 260px;
+    object-fit: contain;
+    align-self: flex-end;
+    flex-shrink: 0;
+}
+.credits-btn-row {
+    margin-top: 14px;
     margin-bottom: 0;
 }
