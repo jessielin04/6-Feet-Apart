@@ -1,0 +1,206 @@
+/*branding config*/
+@font-face {
+    font-family: 'Super Trend';
+    src: url('fonts/SuperTrend-ZpxJ8.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Yeasty Flavors';
+    src: url('fonts/YeastyFlavorsRegular-yweyd.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'DMMono';
+    src: url('fonts/DMMono-Regular.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --purple: #C8A9F5;
+    --pink: #F7B3D6;
+    --yellow: #FDE9A2;
+    --light-blue: #A8D8F0;
+    --cream: #F8F4FF;
+    --dark-purple: #2E2052;
+    --blue: #A8B9F0;
+    --light-purple: #EDE5FF;
+    --light-pink: #FDE9F3;
+    --pastel-yellow: #FFFBE8;
+    --light-sky: #E8F5FC;
+}
+
+/*purple bg*/
+body {
+    background-color: var(--purple);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DMMono', monospace;
+}
+
+/*bg, consistent for all screens*/
+#app {
+    background: var(--cream);
+    border-radius: 24px;
+    width: 960px;
+    height: 580px;
+    position: relative;
+    overflow: hidden;
+    padding: 0 48px;
+}
+
+/*screen switching*/
+.screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    gap: 0;
+}
+.screen.active {
+    display: flex;
+}
+
+/*font configs*/
+.title-font {
+    font-family: 'Super Trend', sans-serif;
+    font-size: 90px;
+    color: var(--dark-purple);
+    text-align: center;
+    line-height: 1;
+    margin-top: 32px;
+    margin-bottom: 0;
+}
+
+.subtitle {
+    font-family: 'DMMono', monospace;
+    font-size: 15px;
+    color: #9a88cc;
+    margin-top: 8px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.section-font {
+    font-family: 'Yeasty Flavors', sans-serif;
+    color: var(--dark-purple);
+}
+
+.body-font {
+    font-family: 'DMMono', monospace;
+    color: var(--dark-purple);
+}
+
+/*buttons*/
+.btn {
+    border: none;
+    border-radius: 999px;
+    padding: 12px 32px;
+    font-family: 'Yeasty Flavors', sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.1s ease, opacity 0.1s ease;
+}
+
+.btn:hover { opacity: 0.9; transform: scale(1.03); }
+.btn:active { transform: scale(0.97); }
+
+.btn-pink   { background: var(--pink);       color: var(--cream); }
+.btn-purple { background: var(--purple);     color: var(--cream); }
+.btn-sky    { background: var(--light-blue); color: var(--cream); }
+.btn-lemon  { background: var(--yellow);     color: var(--cream); }
+.btn-small {
+    font-size: 14px;
+    padding: 8px 20px;
+    background: none;
+    color: var(--purple);
+    font-family: 'DMMono', monospace;
+    border: none;
+    cursor: pointer;
+}
+.btn-small:hover { text-decoration: underline; }
+
+/*arrows between miis*/
+.arrow-between {
+    font-size: 40px;
+    color: #b49de0;
+    align-self: center;
+    padding: 0 2px;
+    flex-shrink: 0;
+    display: inline-block;
+}
+
+/*mii row spacing*/
+.mii-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    gap: 4px;
+    margin-top: 20px;
+    padding: 0 8px;
+}
+.mii-row img {
+    height: 170px;
+    object-fit: contain;
+}
+
+/*button row margins*/
+.btn-row {
+    display: flex;
+    gap: 20px;
+    margin-top: 28px;
+    margin-bottom: 32px;
+    justify-content: center;
+}
+
+/*JUMP JUMP JUMP*/
+@keyframes bob {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-10px); }
+}
+.bob          { animation: bob 2s ease-in-out infinite; }
+.bob-delay-1  { animation: bob 2s ease-in-out infinite 0.2s; }
+.bob-delay-2  { animation: bob 2s ease-in-out infinite 0.4s; }
+.bob-delay-3  { animation: bob 2s ease-in-out infinite 0.6s; }
+.bob-delay-4  { animation: bob 2s ease-in-out infinite 0.8s; }
+.bob-delay-5  { animation: bob 2s ease-in-out infinite 1.0s; }
+
+/*cards*/
+.card {
+    background: white;
+    border-radius: 16px;
+    border: 0.5px solid #e8e0f8;
+    padding: 20px 24px;
+}
+
+/*input fields*/
+.input-field {
+    width: 100%;
+    background: white;
+    border: 2px solid var(--purple);
+    border-radius: 999px;
+    padding: 12px 22px;
+    font-size: 14px;
+    font-family: 'DMMono', monospace;
+    color: var(--dark-purple);
+    outline: none;
+    transition: border-color 0.2s;
+}
+.input-field:focus { border-color: #9b7fe8; }
+.input-field::placeholder { color: #c4b0e8; }
+
+/*button nav bar*/
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 24px;
+}

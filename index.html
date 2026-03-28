@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>6 Feet Apart</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="app">
+
+    <!--launch screen-->
+    <div id="screen-home" class="screen active">
+
+        <!--title + blurb-->
+        <h1 class="title-font">6 Feet Apart</h1>
+        <p class="subtitle">How close are we?</p>
+
+        <!--mii with arrows-->
+        <div class="mii-row">
+            <img src="assets/miis/soccer girl.png"  class="bob"             alt="soccer girl"/>
+            <span class="arrow-between" style="transform: rotate(-15deg)">→</span>
+            <img src="assets/miis/school girl.png"  class="bob bob-delay-1" alt="school girl"/>
+            <span class="arrow-between" style="transform: rotate(10deg)">→</span>
+            <img src="assets/miis/chef.png"          class="bob bob-delay-2" alt="chef"/>
+            <span class="arrow-between" style="transform: rotate(-8deg)">→</span>
+            <img src="assets/miis/teacher.png"       class="bob bob-delay-3" alt="teacher"/>
+            <span class="arrow-between" style="transform: rotate(12deg)">→</span>
+            <img src="assets/miis/burger boy.png"    class="bob bob-delay-4" alt="burger boy"/>
+            <span class="arrow-between" style="transform: rotate(-10deg)">→</span>
+            <img src="assets/miis/firefighter.png"   class="bob bob-delay-5" alt="firefighter"/>
+        </div>
+
+        <!--buttons-->
+        <div class="btn-row">
+            <button class="btn btn-pink" onclick="showScreen('screen-settings')">settings</button>
+            <button class="btn btn-pink" onclick="showScreen('screen-search')">search</button>
+            <button class="btn btn-pink" onclick="showScreen('screen-credits')">credits</button>
+        </div>
+
+    </div>
+    <!-- end home -->
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
