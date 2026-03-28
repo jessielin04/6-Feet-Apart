@@ -4,6 +4,7 @@ const btnSfx  = document.getElementById('sfx-btn');
 
 bgMusic.volume = 0.4;
 
+//NEED TO WORK ON THIS; MUSIC NOT PLAYING IN DEMO
 //start music on very first button click
 let musicStarted = false;
 document.addEventListener('click', e => {
@@ -56,4 +57,13 @@ function toggle(btn) {
     });
     btn.classList.remove('btn-sky-dim');
     btn.classList.add('btn-sky', 'active-toggle');
+}
+
+function handleSearch() {
+    const a = document.getElementById('input-user-a').value.trim();
+    const b = document.getElementById('input-user-b').value.trim();
+    //NOTE!!!!
+    //need to link to oreoluwa's backend; dont forget, need to finish after UI is done!!!!!!!
+    if (!a || !b) return; 
+    showScreen('screen-searching');
 }

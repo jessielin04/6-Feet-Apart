@@ -86,7 +86,6 @@
 
 <!--CREDITS page-->
 <div id="screen-credits" class="screen">
-
     <!--title + blurb: centered across full width-->
     <h1 class="title-font credits-title">Credits</h1>
     <p class="subtitle credits-subtitle">
@@ -121,10 +120,8 @@
                 <span class="credits-tag tag-sky">vis.js</span>
             </div>
         </div>
-
         <img src="assets/miis/cake mii.png" class="credits-mii" alt="cake mii" />
     </div>
-
     <!--back button: centered across full width-->
     <div class="btn-row credits-btn-row">
         <button class="btn btn-pink" onclick="showScreen('screen-home')">back</button>
@@ -133,8 +130,34 @@
 </div>
 <!--CREDITS end-->
  
+<!--SEARCH page-->
+<div id="screen-search" class="screen">
+    <!--titleeeee n the blurb-->
+    <h1 class="title-font search-title">Who knows WHO?!</h1>
+    <p class="subtitle search-subtitle">
+        Enter two <img src="assets/other/twitch-logo.png" class="twitch-inline" alt="Twitch"/> usernames to find their shortest chain of mutual follows.
+    </p>
+    <div class="search-body">
+        <!--LEFT mii-->
+        <img src="assets/miis/fighting mii left.png" class="search-mii search-mii-left" alt="fighting mii left"/>
+        <!--inputs + arrows-->
+        <div class="search-inputs">
+            <input type="text" class="input-field" id="input-user-a" placeholder="User A (e.g. MaxVerstappen UserID)"/>
+            <span class="search-arrow">↓</span>
+            <input type="text" class="input-field" id="input-user-b" placeholder="User B (e.g. DougDoug UserID)"/>
+            <span class="search-arrow">↓</span>
+            <div class="btn-row search-btn-row">
+                <button class="btn btn-sky"  onclick="handleSearch()">search</button>
+                <button class="btn btn-pink" onclick="showScreen('screen-home')">back</button>
+            </div>
+        </div>
+        <!--RIGHT mii-->
+        <img src="assets/miis/fighting mii right.png" class="search-mii search-mii-right" alt="fighting mii right"/>
+    </div>
 </div>
- 
+<!--SEARCH end-->
+
+</div>
 <script src="script.js"></script>
 </body>
 </html>
