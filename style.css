@@ -389,7 +389,7 @@ body {
 }
 /*note: mii sizing, may need to change, dont overlap w input*/
 .search-mii {
-    height: 150px;
+    height: 155px;
     object-fit: contain;
     align-self: flex-end;
 }
