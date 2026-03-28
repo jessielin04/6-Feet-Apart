@@ -164,6 +164,23 @@
 </div>
 <!--SEARCHING end-->
 
+<!--RESULTS page-->
+<div id="screen-results" class="screen">
+    <h1 class="title-font results-title">Small world, huh?</h1>
+    <p class="subtitle results-subtitle" id="results-subtitle">It's a small Twitch after all!</p>
+
+    <!--vis.js graph placeholder-->
+    <!----...ha need to work on this when hooking backend up; yay !! !-->
+    <div class="results-graph" id="results-graph"></div>
+
+    <!--buttons-->
+    <div class="btn-row results-btn-row">
+        <button class="btn btn-pink" onclick="showScreen('screen-comparison')">who did it better?</button>
+        <button class="btn btn-pink" onclick="showScreen('screen-search')">search again</button>
+    </div>
+</div>
+<!--RESULTS end-->
+
 </div>
 <script src="script.js"></script>
 </body>

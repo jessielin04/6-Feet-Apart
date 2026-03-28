@@ -46,6 +46,11 @@ function handleMusicToggle(btn) {
 function showScreen(id) {
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
+    //quick change: when users click "search again" on resulst page, values are cleared from search input page blep :P
+    if (id === 'screen-search') {
+        document.getElementById('input-user-a').value = '';
+        document.getElementById('input-user-b').value = '';
+    }
 }
 
 //YES/NO TOGGLE FOR SETTINGS
@@ -66,5 +71,37 @@ function handleSearch() {
     //need to link to oreoluwa's backend; dont forget, need to finish after UI is done!!!!!!!
     if (!a || !b) return;
     showScreen('screen-searching');
-    setTimeout(() => showScreen('screen-results'), 8000);
+    setTimeout(() => showResults(3, []), 6000);
+}
+
+//RESULTS
+//need to link to backend to work grrrr
+let bfsResult = {
+    degrees: null,
+    path: [],
+};
+
+const searchCompleteSfx = new Audio('assets/audio/search-complete-sound-effect.mp3');
+searchCompleteSfx.volume = 0.75;
+
+function showResults(degrees, path) {
+    bfsResult.degrees = degrees;
+    bfsResult.path    = path;
+
+    //blurb under title swap to amt of deg/nodes apart
+    const sub = document.getElementById('results-subtitle');
+    sub.style.opacity = '1';
+    sub.textContent = "It's a small Twitch after all!";
+    showScreen('screen-results');
+    searchCompleteSfx.currentTime = 0;
+    searchCompleteSfx.play();
+
+    // swap subtitle after 10s
+    setTimeout(() => {
+        sub.style.opacity = '0';
+        setTimeout(() => {
+            sub.textContent = `Only ${bfsResult.degrees} degree${bfsResult.degrees === 1 ? '' : 's'} apart!`;
+            sub.style.opacity = '1';
+        }, 500); 
+    }, 10000);
 }

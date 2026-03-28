@@ -464,3 +464,38 @@ body {
     66%  { content: '...'; }
     100% { content: ''; }
 }
+
+/*RESULTS page*/
+#screen-results {
+    justify-content: flex-start;
+    padding-top: 36px;
+    padding-bottom: 36px;
+}
+.results-title {
+    font-family: 'Super Trend', sans-serif;
+    font-size: 72px;
+    color: var(--dark-purple);
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+}
+.results-subtitle {
+    margin-top: 6px;
+    margin-bottom: 0;
+    transition: opacity 0.5s ease;
+    min-height: 20px;
+}
+.results-graph {
+    width: 100%;
+    flex: 1;
+    margin-top: 12px;
+    border: 1.5px solid #e0d6f5;
+    border-radius: 20px;
+    background: white;
+    min-height: 0;
+    overflow: hidden;
+}
+.results-btn-row {
+    margin-top: 14px;
+    margin-bottom: 0;
+}
