@@ -8,15 +8,17 @@
 </head>
 <body>
 
+<!--background music (autoplay + loop)-->
+<audio id="bg-music" src="assets/audio/tomodachi-life-bgmusic.mp3" loop></audio>
+<!--button click sound effect-->
+<audio id="sfx-btn" src="assets/audio/buttons-sound-effect.mp3"></audio>
+
 <div id="app">
-
-    <!--launch screen-->
+    <!--LAUNCH page-->
     <div id="screen-home" class="screen active">
-
         <!--title + blurb-->
         <h1 class="title-font">6 Feet Apart</h1>
         <p class="subtitle">How close are we?</p>
-
         <!--mii with arrows-->
         <div class="mii-row">
             <img src="assets/miis/soccer girl.png"  class="bob"             alt="soccer girl"/>
@@ -40,7 +42,47 @@
         </div>
 
     </div>
-    <!-- end home -->
+    <!--LAUNCH end-->
+
+    <!--SETTINGS page-->
+    <div id="screen-settings" class="screen">
+        <!--title-->
+        <h1 class="title-font settings-title">Settings</h1>
+        <p class="subtitle">Customize your experience!</p>
+        <!--settings options + mii-->
+        <div class="settings-layout">
+            <!--LEFT: options-->
+            <div class="settings-options">
+                <!--music-->
+                <div class="settings-row">
+                    <span class="settings-label">music?</span>
+                    <div class="settings-btns">
+                        <button class="btn btn-sky settings-toggle active-toggle" onclick="toggle(this); handleMusicToggle(this)">yes</button>
+                        <button class="btn btn-sky-dim settings-toggle"           onclick="toggle(this); handleMusicToggle(this)">no</button>
+                    </div>
+                </div>
+
+                <!--sound effects-->
+                <div class="settings-row">
+                    <span class="settings-label">sound effects?</span>
+                    <div class="settings-btns">
+                        <button class="btn btn-sky settings-toggle active-toggle" onclick="toggle(this)">yes</button>
+                        <button class="btn btn-sky-dim settings-toggle"           onclick="toggle(this)">no</button>
+                    </div>
+                </div>
+            </div>
+            <!--RIGHT: mii-->
+            <img src="assets/miis/3ds mii.png" class="settings-mii" alt="settings mii" />
+
+        </div>
+
+        <!--back button-->
+        <div class="btn-row">
+            <button class="btn btn-pink" onclick="showScreen('screen-home')">back</button>
+        </div>
+
+    </div>
+    <!--SETTINGS end-->
 
 </div>
 

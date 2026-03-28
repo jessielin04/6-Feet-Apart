@@ -77,7 +77,6 @@ body {
     margin-top: 32px;
     margin-bottom: 0;
 }
-
 .subtitle {
     font-family: 'DMMono', monospace;
     font-size: 15px;
@@ -86,12 +85,10 @@ body {
     margin-bottom: 0;
     text-align: center;
 }
-
 .section-font {
     font-family: 'Yeasty Flavors', sans-serif;
     color: var(--dark-purple);
 }
-
 .body-font {
     font-family: 'DMMono', monospace;
     color: var(--dark-purple);
@@ -165,12 +162,12 @@ body {
     0%, 100% { transform: translateY(0px); }
     50%       { transform: translateY(-10px); }
 }
-.bob          { animation: bob 2s ease-in-out infinite; }
-.bob-delay-1  { animation: bob 2s ease-in-out infinite 0.2s; }
-.bob-delay-2  { animation: bob 2s ease-in-out infinite 0.4s; }
-.bob-delay-3  { animation: bob 2s ease-in-out infinite 0.6s; }
-.bob-delay-4  { animation: bob 2s ease-in-out infinite 0.8s; }
-.bob-delay-5  { animation: bob 2s ease-in-out infinite 1.0s; }
+.bob         { animation: bob 2s ease-in-out infinite; }
+.bob-delay-1 { animation: bob 2s ease-in-out infinite 0.2s; }
+.bob-delay-2 { animation: bob 2s ease-in-out infinite 0.4s; }
+.bob-delay-3 { animation: bob 2s ease-in-out infinite 0.6s; }
+.bob-delay-4 { animation: bob 2s ease-in-out infinite 0.8s; }
+.bob-delay-5 { animation: bob 2s ease-in-out infinite 1.0s; }
 
 /*cards*/
 .card {
@@ -203,4 +200,72 @@ body {
     justify-content: space-between;
     width: 100%;
     margin-bottom: 24px;
+}
+
+/*SETTINGS page*/
+.settings-title {
+    font-size: 80px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/*centered screen*/
+#screen-settings {
+    justify-content: center;
+}
+.settings-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 32px 0 72px;
+    margin-top: 12px;
+}
+.settings-options {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+.settings-row {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+.settings-label {
+    font-family: 'Yeasty Flavors', sans-serif;
+    font-size: 40px;
+    color: var(--dark-purple);
+    min-width: 300px;
+}
+.settings-btns {
+    display: flex;
+    gap: 16px;
+}
+
+/*buttons argh*/
+.btn-sky     { background: var(--light-blue); color: var(--cream); }
+.btn-sky-dim { background: #d0e8f5;           color: #b5d8ec; }
+
+.settings-toggle {
+    font-family: 'Yeasty Flavors', sans-serif;
+    font-size: 20px;
+    padding: 10px 32px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.1s ease, opacity 0.1s ease;
+}
+.settings-toggle:hover  { opacity: 0.9; transform: scale(1.03); }
+.settings-toggle:active { transform: scale(0.97); }
+
+/*3ds mii*/
+.settings-mii {
+    height: 260px;
+    object-fit: contain;
+    align-self: flex-end;
+}
+
+#screen-settings .btn-row {
+    margin-top: 12px;
+    margin-bottom: 0;
 }
