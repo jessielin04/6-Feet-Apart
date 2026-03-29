@@ -20,5 +20,5 @@ https://www.figma.com/design/9XYORm80zjDO4cwzB7zZaK/6-Feet-Apart-UI-mockup?node-
 - Visualization: vis.js
 
 ## Known Issues 
-- Music + SFX not playing in demo 
-- Flask needs to output a local host link before opening index.html 
+- Flask needs to output a local host link before opening index.html
+- Error cases are currently in WIP. You'll know when you've hit an error when you're stuck on the searching page. Simply reload and try a different set of userIDs. 
