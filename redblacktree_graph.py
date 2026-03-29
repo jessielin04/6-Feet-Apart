@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-from redblacktree import RedBlackTree
-=======
 from redblacktree import RedBlackTree #utilizes info from redblacktree.py file
->>>>>>> 9c042ebdfdc682476d2b6413a273390f04697379
-
 
 class RBTreeGraph:
 
