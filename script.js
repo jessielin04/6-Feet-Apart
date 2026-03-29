@@ -2,7 +2,7 @@
 //AUDIO SETUP
 const bgMusic = document.getElementById('bg-music');
 const btnSfx  = document.getElementById('sfx-btn');
-bgMusic.volume = 0.5; 
+bgMusic.volume = 0.2; 
 
 //NEED TO WORK ON THIS; MUSIC NOT PLAYING IN DEMO
 //start music on very first button click
