@@ -83,7 +83,7 @@ def run_bfs_comparison(hm: HashMapGraph, rbt: RBTreeGraph, source: int, target: 
 
 
 def print_build_summary(hm: HashMapGraph, rbt: RBTreeGraph, hm_ms: float = 0.0, rbt_ms: float = 0.0) -> None:
-    print("GRAPH BUILD SUMMARY")
+    print("SUMMARY OF GRAPHS")
     print("~" * 60)
     print(f"{hm!r}")
     if hm_ms:
