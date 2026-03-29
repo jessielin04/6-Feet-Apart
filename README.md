@@ -4,6 +4,9 @@
 ## About
 Find the shortest chain of mutual follows between two Twitch Users. 
 
+## Design 
+https://www.figma.com/design/9XYORm80zjDO4cwzB7zZaK/6-Feet-Apart-UI-mockup?node-id=0-1&t=5cYOUgz1TFs7i7zO-1
+
 ## How to Run 
 1. Download the dataset from https://snap.stanford.edu/data/twitch_gamers.html 
 2. Unzip and place dataset in the 6 Feet Apart folder, no need for subfolders. 
