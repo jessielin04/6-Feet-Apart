@@ -1,6 +1,5 @@
 ![mii](assets/miis/right%20mii.png)
-# 6 Feet Apart 
-### How close are we? 
+# 6 Feet Apart : How close are we ?!
 
 ## About
 Find the shortest chain of mutual follows between Twitch Users
