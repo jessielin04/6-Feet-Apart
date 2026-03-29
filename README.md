@@ -2,7 +2,7 @@
 # 6 Feet Apart : How close are we ?!
 
 ## About
-Find the shortest chain of mutual follows between Twitch Users
+Find the shortest chain of mutual follows between two Twitch Users. 
 
 ## How to Run 
 1. Download the dataset from https://snap.stanford.edu/data/twitch_gamers.html 
