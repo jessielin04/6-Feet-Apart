@@ -7,7 +7,6 @@ from hash_map_graph import HashMapGraph
 from redblacktree_graph import RBTreeGraph
 from BFS import bfs_shortest_path
 
-
 def load_graphs(path: str, skip_header: bool = False) -> tuple[HashMapGraph, RBTreeGraph, float, float]:
     hm = HashMapGraph()
     rbt = RBTreeGraph()
@@ -26,10 +25,10 @@ def load_graphs(path: str, skip_header: bool = False) -> tuple[HashMapGraph, RBT
             except ValueError:
                 continue
 
-    t0 = time.perf_counter()
+    t0=time.perf_counter()
     for u, v in edges:
         hm.add_edge(u, v)
-    hm_ms = (time.perf_counter() - t0) * 1000
+    hm_ms=(time.perf_counter() - t0) * 1000
 
     t0 = time.perf_counter()
     for u, v in edges:
@@ -55,12 +54,12 @@ def build_demo_graphs() -> tuple[HashMapGraph, RBTreeGraph]:
 
 
 def run_bfs_comparison(hm: HashMapGraph, rbt: RBTreeGraph, source: int, target: int) -> None:
-    hm_result = bfs_shortest_path(hm, source, target, struct_name="HashMapGraph")
-    rbt_result = bfs_shortest_path(rbt, source, target, struct_name="RBTreeGraph")
+    hm_result = bfs_shortest_path(hm, source, target, struct_name="Hash Map Graph")
+    rbt_result = bfs_shortest_path(rbt, source, target, struct_name="Red-Black Tree Graph")
 
-    sep = "-" * 60
+    sep = "-" * 100
     print(sep)
-    print(f"  BFS  |  source={source}  ->  target={target}")
+    print(f"BFS: source={source}-> target={target}")
     print(sep)
     print(hm_result.summary())
     print()
@@ -68,31 +67,30 @@ def run_bfs_comparison(hm: HashMapGraph, rbt: RBTreeGraph, source: int, target: 
     print(sep)
 
     if hm_result.degrees != rbt_result.degrees:
-        print("  WARNING: path lengths differ between structures!")
+        print("WARNING: the path lengths will differ between structures")
     else:
         status = "reachable" if hm_result.found else "unreachable"
-        print(f"  Both structures agree — node pair is {status}.")
+        print(f"Both structures agree; The node pair is {status}.")
 
     if hm_result.elapsed_ms > 0 and rbt_result.elapsed_ms > 0:
-        faster_name = "HashMap" if hm_result.elapsed_ms <= rbt_result.elapsed_ms else "RBTree"
-        faster_ms = hm_result.elapsed_ms if faster_name == "HashMap" else rbt_result.elapsed_ms
-        slower_ms = rbt_result.elapsed_ms if faster_name == "HashMap" else hm_result.elapsed_ms
+        faster_name = "Hash Map" if hm_result.elapsed_ms <= rbt_result.elapsed_ms else "Red-Black Tree"
+        faster_ms = hm_result.elapsed_ms if faster_name == "Hash Map" else rbt_result.elapsed_ms
+        slower_ms = rbt_result.elapsed_ms if faster_name == "Hash Map" else hm_result.elapsed_ms
         ratio = slower_ms / faster_ms
-        print(f"  {faster_name} BFS was {ratio:.2f}x faster ({faster_ms:.4f} ms vs {slower_ms:.4f} ms)")
+        print(f"{faster_name} BFS was {ratio:.2f}x faster ({faster_ms:.4f} ms vs {slower_ms:.4f} ms)")
     print(sep)
     print()
 
 
 def print_build_summary(hm: HashMapGraph, rbt: RBTreeGraph, hm_ms: float = 0.0, rbt_ms: float = 0.0) -> None:
-    print("=" * 60)
-    print("  GRAPH BUILD SUMMARY")
-    print("=" * 60)
-    print(f"  {hm!r}")
+    print("GRAPH BUILD SUMMARY")
+    print("~" * 60)
+    print(f"{hm!r}")
     if hm_ms:
-        print(f"    Build time : {hm_ms:,.2f} ms")
+        print(f"Build time: {hm_ms:,.2f} ms")
     print(f"  {rbt!r}")
     if rbt_ms:
-        print(f"    Build time : {rbt_ms:,.2f} ms")
+        print(f"Build time: {rbt_ms:,.2f} ms")
     print("=" * 60)
     print()
 
@@ -103,7 +101,6 @@ def main() -> None:
     args = [a for a in args if not a.startswith("--")]
 
     if not args:
-        print("\n[Demo mode — no CSV supplied, using built-in graph]\n")
         hm, rbt = build_demo_graphs()
         print_build_summary(hm, rbt)
         for src, tgt in [(1, 9), (1, 5), (2, 7), (10, 4), (1, 99)]:
@@ -115,13 +112,13 @@ def main() -> None:
         print(f"Error: file not found — {csv_path}", file=sys.stderr)
         sys.exit(1)
 
-    print(f"\nLoading graph from: {csv_path}")
+    print(f"Graph loading from: {csv_path}")
     hm, rbt, hm_ms, rbt_ms = load_graphs(csv_path, skip_header=skip_header)
     print_build_summary(hm, rbt, hm_ms, rbt_ms)
 
     nodes = hm.all_nodes()
     if not nodes:
-        print("No nodes loaded — check your CSV format.")
+        print("Check your format, no nodes loaded.")
         sys.exit(1)
 
     if len(args) >= 3:
@@ -129,7 +126,7 @@ def main() -> None:
             source = int(args[1])
             target = int(args[2])
         except ValueError:
-            print("Error: source and target must be integers.", file=sys.stderr)
+            print("Error: Integers must be utilized.", file=sys.stderr)
             sys.exit(1)
     else:
         source, target = nodes[0], nodes[min(len(nodes) - 1, 500)]
