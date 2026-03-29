@@ -1,7 +1,7 @@
-import csv
-import sys
-import time
-from pathlib import Path
+import csv #loads tabular data
+import sys #loads sys module
+import time #HELPS FOR Recording time comparisons (loads timer)
+from pathlib import Path #loads pathlib module
 
 from hash_map_graph import HashMapGraph
 from redblacktree_graph import RBTreeGraph
@@ -24,11 +24,13 @@ def load_graphs(path: str, skip_header: bool = False) -> tuple[HashMapGraph, RBT
                 edges.append((u, v))
             except ValueError:
                 continue
-
+#builds hash map graph and provides time
     t0=time.perf_counter()
     for u, v in edges:
         hm.add_edge(u, v)
     hm_ms=(time.perf_counter() - t0) * 1000
+
+# builds red-black tree graph and provides time
 
     t0 = time.perf_counter()
     for u, v in edges:
@@ -44,6 +46,7 @@ DEMO_EDGES = [
     (3, 7), (2, 8), (1, 10), (5, 10), (6, 3),
 ]
 
+#utilizes demo edges provided above (used when a csv is NOT provided)
 def build_demo_graphs() -> tuple[HashMapGraph, RBTreeGraph]:
     hm = HashMapGraph()
     rbt = RBTreeGraph()
@@ -53,6 +56,7 @@ def build_demo_graphs() -> tuple[HashMapGraph, RBTreeGraph]:
     return hm, rbt
 
 
+#runs BFS
 def run_bfs_comparison(hm: HashMapGraph, rbt: RBTreeGraph, source: int, target: int) -> None:
     hm_result = bfs_shortest_path(hm, source, target, struct_name="Hash Map Graph")
     rbt_result = bfs_shortest_path(rbt, source, target, struct_name="Red-Black Tree Graph")
@@ -66,12 +70,14 @@ def run_bfs_comparison(hm: HashMapGraph, rbt: RBTreeGraph, source: int, target: 
     print(rbt_result.summary())
     print(sep)
 
+#checks that both red-black tree and hash map agree on path
     if hm_result.degrees != rbt_result.degrees:
         print("WARNING: the path lengths will differ between structures")
     else:
         status = "reachable" if hm_result.found else "unreachable"
         print(f"Both structures agree; The node pair is {status}.")
 
+#which BFS is faster between red-black tree and hash map
     if hm_result.elapsed_ms > 0 and rbt_result.elapsed_ms > 0:
         faster_name = "Hash Map" if hm_result.elapsed_ms <= rbt_result.elapsed_ms else "Red-Black Tree"
         faster_ms = hm_result.elapsed_ms if faster_name == "Hash Map" else rbt_result.elapsed_ms
@@ -82,6 +88,7 @@ def run_bfs_comparison(hm: HashMapGraph, rbt: RBTreeGraph, source: int, target: 
     print()
 
 
+#below's primary purpose is to provide headings and borders/edges for the build times of both red-black tree and hash map
 def print_build_summary(hm: HashMapGraph, rbt: RBTreeGraph, hm_ms: float = 0.0, rbt_ms: float = 0.0) -> None:
     print("\nSUMMARY OF GRAPHS")
     print("~" * 60)
@@ -97,7 +104,7 @@ def print_build_summary(hm: HashMapGraph, rbt: RBTreeGraph, hm_ms: float = 0.0, 
 
 def main() -> None:
     args = sys.argv[1:]
-    skip_header = "--skip-header" in args
+    skip_header = "--skip-header" in args #skips the csv header for optional flag if present
     args = [a for a in args if not a.startswith("--")]
 
     if not args:
@@ -106,7 +113,7 @@ def main() -> None:
         for src, tgt in [(1, 9), (1, 5), (2, 7), (10, 4), (1, 99)]:
             run_bfs_comparison(hm, rbt, src, tgt)
         return
-
+#loads graph from the file, utilizing csv
     csv_path = args[0]
     if not Path(csv_path).exists():
         print(f"Error: file not found — {csv_path}", file=sys.stderr)
@@ -121,6 +128,7 @@ def main() -> None:
         print("Check your format, no nodes loaded.")
         sys.exit(1)
 
+#for auto-selected nodes...
     if len(args) >= 3:
         try:
             source = int(args[1])
@@ -134,6 +142,8 @@ def main() -> None:
 
     run_bfs_comparison(hm, rbt, source, target)
 
+
+#if graph is big enough...
     if len(nodes) >= 10:
         import random
         random.seed(42)
