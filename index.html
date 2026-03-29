@@ -1,3 +1,4 @@
+<!--REFERENCES UNDER REFERENCES.TXT-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>6 Feet Apart</title>
     <link rel="stylesheet" href="style.css" />
+    
+    <!--https://github.com/visjs/vis-network-->
+    <!--updated with current version-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/10.0.2/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/10.0.2/dist/dist/vis-network.min.css"/>
 </head>
 <body>
 
@@ -14,7 +20,7 @@
 <audio id="sfx-btn" src="assets/audio/buttons-sound-effect.mp3"></audio>
 
 <div id="app">
-    <!--LAUNCH page-->
+    <!--LAUNCH PAGE-->
     <div id="screen-home" class="screen active">
         <!--title + blurb-->
         <h1 class="title-font">6 Feet Apart</h1>
@@ -33,7 +39,6 @@
             <span class="arrow-between" style="transform: rotate(-10deg)">→</span>
             <img src="assets/miis/firefighter.png"   class="bob bob-delay-5" alt="firefighter"/>
         </div>
-
         <!--buttons-->
         <div class="btn-row">
             <button class="btn btn-pink" onclick="showScreen('screen-settings')">settings</button>
@@ -42,9 +47,9 @@
         </div>
 
     </div>
-    <!--LAUNCH end-->
+    <!--LAUNCH END-->
 
-    <!--SETTINGS page-->
+    <!--SETTINGS PAGE-->
     <div id="screen-settings" class="screen">
         <!--title-->
         <h1 class="title-font settings-title">Settings</h1>
@@ -55,7 +60,7 @@
             <div class="settings-options">
                 <!--music-->
                 <div class="settings-row">
-                    <span class="settings-label">music?</span>
+                    <span class="settings-label">Music?</span>
                     <div class="settings-btns">
                         <button class="btn btn-sky settings-toggle active-toggle" onclick="toggle(this); handleMusicToggle(this)">yes</button>
                         <button class="btn btn-sky-dim settings-toggle"           onclick="toggle(this); handleMusicToggle(this)">no</button>
@@ -64,7 +69,7 @@
 
                 <!--sound effects-->
                 <div class="settings-row">
-                    <span class="settings-label">sound effects?</span>
+                    <span class="settings-label">Sound Effects?</span>
                     <div class="settings-btns">
                         <button class="btn btn-sky settings-toggle active-toggle" onclick="toggle(this)">yes</button>
                         <button class="btn btn-sky-dim settings-toggle"           onclick="toggle(this)">no</button>
@@ -73,18 +78,15 @@
             </div>
             <!--RIGHT: mii-->
             <img src="assets/miis/3ds mii.png" class="settings-mii" alt="settings mii" />
-
         </div>
-
         <!--back button-->
         <div class="btn-row">
             <button class="btn btn-pink" onclick="showScreen('screen-home')">back</button>
         </div>
-
     </div>
-    <!--SETTINGS end-->
+    <!--SETTINGS END-->
 
-<!--CREDITS page-->
+<!--CREDITS PAGE-->
 <div id="screen-credits" class="screen">
     <!--title + blurb: centered across full width-->
     <h1 class="title-font credits-title">Credits</h1>
@@ -92,7 +94,6 @@
         Made with love (and BFS) at the University of Florida.<br/>
         No Twitch users were harmed in the process.
     </p>
-
     <!--middle row: left content + right mii-->
     <div class="credits-inner">
         <div class="credits-left">
@@ -105,13 +106,11 @@
                 <span class="credits-name">Oreoluwa Owoeye</span>
                 <span class="credits-role">Backend HashMap, Red-Black Tree &amp; BFS</span>
             </div>
-
             <h2 class="credits-section-header">Data</h2>
             <div class="credits-card credits-card-data">
                 <span class="credits-name">SNAP Twitch Gamers Social Network</span>
                 <span class="credits-url">https://snap.stanford.edu/data/twitch_gamers.html</span>
             </div>
-
             <h2 class="credits-section-header">Tools &amp; Libraries</h2>
             <div class="credits-tags">
                 <span class="credits-tag tag-sky">Python</span>
@@ -126,11 +125,10 @@
     <div class="btn-row credits-btn-row">
         <button class="btn btn-pink" onclick="showScreen('screen-home')">back</button>
     </div>
-
 </div>
-<!--CREDITS end-->
+<!--CREDITS END-->
  
-<!--SEARCH page-->
+<!--SEARCH PAGE-->
 <div id="screen-search" class="screen">
     <!--titleeeee n the blurb-->
     <h1 class="title-font search-title">Who knows WHO?!</h1>
@@ -155,16 +153,16 @@
         <img src="assets/miis/fighting mii right.png" class="search-mii search-mii-right" alt="fighting mii right"/>
     </div>
 </div>
-<!--SEARCH end-->
+<!--SEARCH END-->
 
-<!--SEARCHING page-->
+<!--SEARCHING PAGE-->
 <div id="screen-searching" class="screen">
     <img src="assets/miis/mermaid.png" class="searching-mii" alt="searching mii"/>
     <p class="searching-text">swimming through 6,797,557 edges<span class="searching-dots"></span></p>
 </div>
-<!--SEARCHING end-->
+<!--SEARCHING END-->
 
-<!--RESULTS page-->
+<!--RESULTS PAGE-->
 <div id="screen-results" class="screen">
     <h1 class="title-font results-title">Small world, huh?</h1>
     <p class="subtitle results-subtitle" id="results-subtitle">It's a small Twitch after all!</p>
@@ -175,11 +173,55 @@
 
     <!--buttons-->
     <div class="btn-row results-btn-row">
-        <button class="btn btn-pink" onclick="showScreen('screen-comparison')">who did it better?</button>
+        <button class="btn btn-pink" onclick="showComparison()">who did it better?</button>
         <button class="btn btn-pink" onclick="showScreen('screen-search')">search again</button>
     </div>
 </div>
-<!--RESULTS end-->
+<!--RESULTS END-->
+
+<!--COMPARISON PAGE-->
+<div id="screen-comparison" class="screen">
+    <h1 class="title-font" style="font-size: 72px; margin-top: 0; margin-bottom: 0;">Who did it better?</h1>
+    <p class="subtitle">Same path, different journey.</p>
+    <div class="comparison-layout">
+        <!--RED BLACK TREE card-->
+        <div class="comparison-card" id="card-rbtree">
+            <h2 class="comparison-card-title">Red-Black Trees</h2>
+            <p class="comparison-stat-label">BFS Time</p>
+            <div class="comparison-stat-box" id="rbt-time">—</div>
+            <p class="comparison-stat-label">Nodes Visited</p>
+            <div class="comparison-stat-box" id="rbt-nodes">—</div>
+            <p class="comparison-stat-label">Cost Complexity</p>
+            <div class="comparison-stat-box">O(log n) per neighbor</div>
+        </div>
+        <!--VS circle-->
+        <div class="comparison-middle">
+            <div class="vs-circle">vs</div>
+        </div>
+        <!--HASH MAP card-->
+        <div class="comparison-card" id="card-hash">
+            <h2 class="comparison-card-title">Hash Maps</h2>
+            <p class="comparison-stat-label">BFS Time</p>
+            <div class="comparison-stat-box" id="hash-time">—</div>
+            <p class="comparison-stat-label">Nodes Visited</p>
+            <div class="comparison-stat-box" id="hash-nodes">—</div>
+            <p class="comparison-stat-label">Cost Complexity</p>
+            <div class="comparison-stat-box">O(1) per neighbor</div>
+        </div>
+    </div>
+    <!--crown lives here, gets moved by JS-->
+    <img id="crown-img" src="assets/other/winner-crown.png" class="comparison-crown" alt="crown"/>
+    <!--miis + buttons-->
+    <div class="comparison-bottom">
+        <img src="assets/miis/left mii.png"  class="comparison-mii" alt="left mii"/>
+        <div class="btn-row" style="margin: 0; padding-bottom: 8px;">
+            <button class="btn btn-pink" onclick="showScreen('screen-results')">back</button>
+            <button class="btn btn-pink" onclick="showScreen('screen-search')">search again</button>
+        </div>
+        <img src="assets/miis/right mii.png" class="comparison-mii" alt="right mii"/>
+    </div>
+</div>
+<!--COMPARISON END-->
 
 </div>
 <script src="script.js"></script>

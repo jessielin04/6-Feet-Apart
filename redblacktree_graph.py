@@ -1,4 +1,4 @@
-from rbtree import RedBlackTree
+from redblacktree import RedBlackTree
 
 
 class RBTreeGraph:
