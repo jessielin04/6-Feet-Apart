@@ -1,4 +1,4 @@
-![mii](assets/miis/right mii.png)
+![mii](assets/miis/right%20mii.png)
 # 6 Feet Apart 
 How close are we? 
 
