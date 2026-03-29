@@ -1,4 +1,4 @@
-from rbtree import RedBlackTree
+from redblacktree import RedBlackTree
 
 
 class RBTreeGraph:
@@ -43,6 +43,6 @@ class RBTreeGraph:
 
     def __repr__(self) -> str:
         return (
-            f"RBTreeGraph(nodes={self.node_count:,}, "
+            f"Red-Black Tree Graph(nodes={self.node_count:,}, "
             f"edges={self.edge_count:,})"
         )
