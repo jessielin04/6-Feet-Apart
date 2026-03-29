@@ -15,6 +15,8 @@ class Node:
 
 class RedBlackTree:
 
+
+#ALWAYS BLACK
     def __init__(self):
         self.NIL = Node(key=None, color=BLACK)
         self.NIL.left = self.NIL
@@ -24,21 +26,21 @@ class RedBlackTree:
         self.size = 0
 
     def insert(self, key) -> None:
-        if self.contains(key):
+        if self.contains(key): #SKIPS KEYS THAT MAY REPEAT
             return
 
-        z = Node(key)
+        z = Node(key) #CREATES RED node with empty children
         z.left = self.NIL
         z.right = self.NIL
         z.parent = self.NIL
 
-        y = self.NIL
+        y = self.NIL #for insertion...
         x = self.root
         while x is not self.NIL:
             y = x
             x = x.left if z.key < x.key else x.right
 
-        z.parent = y
+        z.parent = y #empty
         if y is self.NIL:
             self.root = z
         elif z.key < y.key:
@@ -46,7 +48,7 @@ class RedBlackTree:
         else:
             y.right = z
 
-        self.size += 1
+        self.size += 1 #post insertion
         self.insert_fixup(z)
 
     def contains(self, key) -> bool:
@@ -76,7 +78,7 @@ class RedBlackTree:
         return self.size > 0
 
     def __iter__(self):
-        yield from self.inorder(self.root)
+        yield from self.inorder(self.root) #inorder traversal
 
     def __repr__(self) -> str:
         return f"RedBlackTree(size={self.size})"
@@ -84,25 +86,27 @@ class RedBlackTree:
     def search(self, node, key):
         while node is not self.NIL and node.key != key:
             node = node.left if key < node.key else node.right
-        return node
+        return node #key not found, returns "NIL"--> BST search
 
+
+#below is inorder traversal
     def inorder(self, node):
         if node is not self.NIL:
             yield from self.inorder(node.left)
             yield node.key
             yield from self.inorder(node.right)
 
-    def minimum(self, node):
+    def minimum(self, node): #leftmost node= min key
         while node.left is not self.NIL:
             node = node.left
         return node
 
-    def maximum(self, node):
+    def maximum(self, node): #rightmost node=max key
         while node.right is not self.NIL:
             node = node.right
         return node
 
-    def left_rotate(self, x):
+    def left_rotate(self, x): #for left rotation
         y = x.right
         x.right = y.left
         if y.left is not self.NIL:
@@ -117,7 +121,7 @@ class RedBlackTree:
         y.left = x
         x.parent = y
 
-    def right_rotate(self, y):
+    def right_rotate(self, y): #right rotation
         x = y.left
         y.left = x.right
         if x.right is not self.NIL:
@@ -132,7 +136,7 @@ class RedBlackTree:
         x.right = y
         y.parent = x
 
-    def insert_fixup(self, z):
+    def insert_fixup(self, z): #for violations/mistakes
         while z.parent.color is RED:
             if z.parent is z.parent.parent.left:
                 uncle = z.parent.parent.right
@@ -163,7 +167,7 @@ class RedBlackTree:
                     z.parent.parent.color = RED
                     self.left_rotate(z.parent.parent)
 
-        self.root.color = BLACK
+        self.root.color = BLACK #REMEMBER ROOT IS ALWAYS BLACK
 
     def transplant(self, u, v):
         if u.parent is self.NIL:
@@ -178,14 +182,14 @@ class RedBlackTree:
         y = z
         y_original_col = y.color
 
-        if z.left is self.NIL:
+        if z.left is self.NIL: # NO LEFT child
             x = z.right
             self.transplant(z, z.right)
-        elif z.right is self.NIL:
+        elif z.right is self.NIL: #NO RIGHT child
             x = z.left
             self.transplant(z, z.left)
         else:
-            y = self.minimum(z.right)
+            y = self.minimum(z.right) #2 children
             y_original_col = y.color
             x = y.right
             if y.parent is z:
@@ -206,16 +210,16 @@ class RedBlackTree:
         while x is not self.root and x.color is BLACK:
             if x is x.parent.left:
                 w = x.parent.right
-                if w.color is RED:
+                if w.color is RED: #sibling=red
                     w.color = BLACK
                     x.parent.color = RED
                     self.left_rotate(x.parent)
                     w = x.parent.right
                 if w.left.color is BLACK and w.right.color is BLACK:
-                    w.color = RED
+                    w.color = RED #siblings children=black
                     x = x.parent
                 else:
-                    if w.right.color is BLACK:
+                    if w.right.color is BLACK: #sibling right child=black
                         w.left.color = BLACK
                         w.color = RED
                         self.right_rotate(w)
