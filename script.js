@@ -2,7 +2,7 @@
 //AUDIO SETUP
 const bgMusic = document.getElementById('bg-music');
 const btnSfx  = document.getElementById('sfx-btn');
-bgMusic.volume = 0.4; 
+bgMusic.volume = 0.5; 
 
 //NEED TO WORK ON THIS; MUSIC NOT PLAYING IN DEMO
 //start music on very first button click
@@ -92,7 +92,7 @@ async function handleSearch() {
 //RESULTS
 //no longer needed bfsResult bcs window.lastResult is used
 
-const searchCompleteSfx = new Audio('assets/audio/search-complete-sound-effect.mp3');
+const searchCompleteSfx = new Audio('audio/search-complete-sound-effect.mp3');
 searchCompleteSfx.volume = 0.75;
 function showResults(degrees, path) {
     const sub = document.getElementById('results-subtitle');

@@ -10,7 +10,7 @@ https://www.figma.com/design/9XYORm80zjDO4cwzB7zZaK/6-Feet-Apart-UI-mockup?node-
 ## How to Run 
 1. Download the dataset from https://snap.stanford.edu/data/twitch_gamers.html 
 2. Unzip and place dataset in the 6 Feet Apart folder, no need for subfolders. 
-3. Install dependencies: `pip install flask'`
+3. Install dependencies: `pip install flask`
 4. Run the server: `.venv\Scripts\python.exe flask_app.py`
 5. Open `index.html` with the Live Server extension 
 
