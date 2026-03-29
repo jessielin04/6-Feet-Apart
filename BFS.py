@@ -15,18 +15,18 @@ class BFSResult:
 
     @property
     def degrees(self) -> Optional[int]:
-        return (len(self.path) - 1) if self.path else None
+        return (len(self.path) - 1) if self.path else None #edges in shortest path
 
     @property
     def found(self) -> bool:
-        return self.path is not None
+        return self.path is not None #True if path exists
 
-    def path_str(self) -> str:
+    def path_str(self) -> str: #produces path separated by arrows
         if not self.path:
             return "No connection found"
         return " -> ".join(str(uid) for uid in self.path)
 
-    def summary(self) -> str:
+    def summary(self) -> str: #summarizes data for BFS
         deg = f"{self.degrees} degree(s) of separation" if self.found else "unreachable"
         return (
             f"[{self.struct_name}]\n"
@@ -36,7 +36,7 @@ class BFSResult:
             f"  BFS time: {self.elapsed_ms:.4f} ms"
         )
 
-    def to_dict(self) -> dict:
+    def to_dict(self) -> dict: #connects to flask
         return {
             "source": self.source,
             "target": self.target,
@@ -57,7 +57,8 @@ def bfs_shortest_path(
 ) -> BFSResult:
     t0 = time.perf_counter()
 
-    if not graph.has_node(source) or not graph.has_node(target):
+    #if node is non-existent...
+    if not graph.has_node(source) or not graph.has_node(target): 
         elapsed = (time.perf_counter() - t0) * 1000
         return BFSResult(source, target, struct_name, None, 0, elapsed)
 
@@ -70,6 +71,7 @@ def bfs_shortest_path(
     nodes_visited = 0
     found = False
 
+    #BFS loop
     while queue:
         current = queue.popleft()
         nodes_visited += 1
