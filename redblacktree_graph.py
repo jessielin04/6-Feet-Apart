@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 from redblacktree import RedBlackTree
+=======
+from redblacktree import RedBlackTree #utilizes info from redblacktree.py file
+>>>>>>> 9c042ebdfdc682476d2b6413a273390f04697379
 
 
 class RBTreeGraph:
@@ -7,6 +11,8 @@ class RBTreeGraph:
         self.adj: dict[int, RedBlackTree] = {}
         self.edge_count: int = 0
 
+
+#creates red-black tree adjacency list for node u
     def tree(self, u: int) -> RedBlackTree:
         if u not in self.adj:
             self.adj[u] = RedBlackTree()
@@ -14,15 +20,18 @@ class RBTreeGraph:
 
     def add_edge(self, u: int, v: int) -> None:
         tu = self.tree(u)
-        tv = self.tree(v)
+        tv = self.tree(v) #for when graph is undirected or edge does not exist
         if not tu.contains(v):
             tu.insert(v)
             tv.insert(u)
             self.edge_count += 1
 
     def add_node(self, u: int) -> None:
-        self.tree(u)
+        self.tree(u) #checks that node u exists in empty red-black tree
 
+
+#repeats over u's neighbors to make sure it is in sorted order
+    #travels tree through inorder traversal
     def neighbors(self, u: int):
         t = self.adj.get(u)
         return iter(t) if t is not None else iter([])
@@ -43,6 +52,8 @@ class RBTreeGraph:
 
     def __repr__(self) -> str:
         return (
-            f"RBTreeGraph(nodes={self.node_count:,}, "
+            f"Red-Black Tree Graph(nodes={self.node_count:,}, "
             f"edges={self.edge_count:,})"
         )
+
+#DONEEEEEE
